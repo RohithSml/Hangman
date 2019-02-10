@@ -36,5 +36,8 @@ def check(word,userIp):
     return  index_list
     
 
+def unmask(word,g_wrd,index_list):
+    for i in index_list:
+        g_wrd[i]=word[i]
 
-    
+    return g_wrd
