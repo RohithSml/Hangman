@@ -26,3 +26,6 @@ def test_check_correct_input_from_user():
 
 def test_check_correct_options_input_from_user():
     assert hangman.check(['a','b','a', 'c', 'a'],'a') == [0, 2, 4]
+
+def test_unmasking_the_secret_word_for_correct_guess():
+    assert hangman.unmask(['a','b','a','c','a'],['*','*','*','*','*'],[0,2,4]) == ['a', '*', 'a', '*', 'a']
