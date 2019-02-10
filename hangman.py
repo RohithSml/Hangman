@@ -17,6 +17,12 @@ def get_secret_word(word_file="/usr/share/dict/words"):
     return random.choice(good_words)
 
 def mask_secret_word(word):
+    length=len(word)
+    masked_wrd=''
+    for i in range (length):
+        masked_wrd+='*'
+
+    return masked_wrd
     
         
 
