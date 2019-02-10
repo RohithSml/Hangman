@@ -24,8 +24,15 @@ def mask_secret_word(word):
 
     return masked_wrd
 
-def check(word,user_ip):
-    return  0
+def check(word,userIp):
+    n=word.count(userIp)
+    index_list=[]
+
+    for i in range (n):
+        index=word.index(userIp)
+        index_list.append(index)
+        
+    return  index_list
     
 
 

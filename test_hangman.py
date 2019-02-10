@@ -23,3 +23,4 @@ def test_mask_word_the_first_time():
 
 def test_check_correct_input_from_user():
     assert hangman.check(['b','a','c'],'a') == [1]
+
