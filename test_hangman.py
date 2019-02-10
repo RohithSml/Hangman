@@ -29,3 +29,21 @@ def test_check_correct_options_input_from_user():
 
 def test_unmasking_the_secret_word_for_correct_guess():
     assert hangman.unmask(['a','b','a','c','a'],['*','*','*','*','*'],[0,2,4]) == ['a', '*', 'a', '*', 'a']
+
+
+def test_for_main():
+    input_values=['e','l','p','h','a','n','t']
+    output=[]
+
+    def mock_input(s):
+        output.append(s)
+        return input_values.pop(0)
+
+    hangman.input=mock_input
+    hangman.print=lambda s :output.append(s)
+
+    hangman.main("elephant")
+            
+    assert output[1]== "Number of tries left: 10"
+    assert output[3]== "Enter your guess:  "
+    assert output[4]=="e*e*****"
