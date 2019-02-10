@@ -31,7 +31,8 @@ def check(word,userIp):
     for i in range (n):
         index=word.index(userIp)
         index_list.append(index)
-        
+        word[index]='!'
+
     return  index_list
     
 
