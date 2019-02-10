@@ -18,4 +18,8 @@ def test_secret_word_no_proper_nouns():
 
 
 def test_mask_word_the_first_time():
-    assert hangman.mask_secret_word('elephant') == '********'
+    assert hangman.mask_secret_word('elephant',) == '********'
+
+
+def test_check_correct_input_from_user():
+    assert hangman.check(['b','a','c'],'a') == [1]

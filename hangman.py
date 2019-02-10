@@ -23,9 +23,10 @@ def mask_secret_word(word):
         masked_wrd+='*'
 
     return masked_wrd
-    
-        
 
+def check(word,user_ip):
+    return  0
+    
 
 
     
