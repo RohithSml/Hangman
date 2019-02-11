@@ -31,8 +31,8 @@ def test_unmasking_the_secret_word_for_correct_guess():
     assert hangman.unmask(['a','b','a','c','a'],['*','*','*','*','*'],[0,2,4]) == ['a', '*', 'a', '*', 'a']
 
 
-def test_for_main():
-    input_values=['e','l','p','h','a','n','t']
+def test_for_Win_main():
+    input_values=['e','l', 'p','h','a','n','t']
     output=[]
 
     def mock_input(s):
@@ -44,6 +44,25 @@ def test_for_main():
 
     hangman.main("elephant")
             
-    assert output[1]== "Number of tries left: 10"
-    assert output[3]== "Enter your guess:  "
-    assert output[4]=="e*e*****"
+    assert output[1] == "Number of tries left: 10"
+    assert output[3] == "Enter your guess:  "
+    assert output[4] == "e*e*****"
+    assert output[35] == "Congratulations! You WON."
+
+def test_for_Lose_main():
+
+    input_values=['k','k', 'k','k','k','k','k','k','k','k']
+    output=[]
+
+    def mock_input(s):
+        output.append(s)
+        return input_values.pop(0)
+
+    hangman.input=mock_input
+    hangman.print=lambda s :output.append(s)
+
+    hangman.main("elephant")
+
+    assert output[1] == "Number of tries left: 10"
+    assert output[4] == "Wrong Guess:"
+    assert output[50] == "Too bad! The secret word was elephant"
