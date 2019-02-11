@@ -17,28 +17,26 @@ def get_secret_word(word_file="/usr/share/dict/words"):
     return random.choice(good_words)
 
 def mask_secret_word(word):
-    length=len(word)
-    masked_wrd=''
-    for i in range (length):
-        masked_wrd+='*'
-
+    masked_wrd="*"*len(word)
     return masked_wrd
 
 def check(word,userIp):
-    slice_wrd=word[:]
+    slice_wrd=word[:] #slicing the list to duplicate
     n= slice_wrd.count(userIp)
     index_list=[]
+    
     for i in range (n):
+        
         index=slice_wrd.index(userIp)
         index_list.append(index)
         slice_wrd[index]='@'
-        
         
     return  index_list
     
 
 def unmask(word,g_wrd,index_list):
     for i in index_list:
+
         g_wrd[i]=word[i]
 
     return g_wrd
@@ -82,7 +80,6 @@ def main(str_word=get_secret_word()):
             
             print("Wrong Guess:")
             wrng_g=wrng_g+usr_input
-            
             
             tries=tries-1
             
