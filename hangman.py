@@ -57,9 +57,9 @@ def main(str_word=get_secret_word()):
     
     while tries:
         
-        print(f"\n {g_str} \n")
-        print(f"Number of tries left: {tries}")
-        print(f"Wrong guesses so far: {wrng_g}")
+        print("\n {} \n".format(g_str))
+        print("Number of tries left: {}".format(tries))
+        print("Wrong guesses so far: {}".format(wrng_g))
         
         usr_input=input("Enter your guess:  ")
         
@@ -90,7 +90,7 @@ def main(str_word=get_secret_word()):
             
         if tries == 0:
             
-            print(f"Too bad! The secret word was {str_word}")
+            print("Too bad! The secret word was {}".format(str_word))
                 
                 
 if __name__=='__main__':
