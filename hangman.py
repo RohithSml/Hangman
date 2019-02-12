@@ -56,7 +56,6 @@ def main(str_word=get_secret_word()):
    # print(word)
     
     while tries:
-        
         print("\n {} \n".format(g_str))
         print("Number of tries left: {}".format(tries))
         print("Wrong guesses so far: {}".format(wrng_g))
@@ -68,28 +67,20 @@ def main(str_word=get_secret_word()):
             continue
         
         if usr_input in word:
-            
             index_list=check(word,usr_input)
             mskd_list=unmask(word,mskd_list,index_list)
             g_str=''.join(mskd_list)
-            
             print(g_str)
-            
-            
         else:
-            
             print("Wrong Guess:")
             wrng_g=wrng_g+usr_input
-            
             tries=tries-1
             
         if str_word==g_str:
-            
             print("Congratulations! You WON.")
             break
             
         if tries == 0:
-            
             print("Too bad! The secret word was {}".format(str_word))
                 
                 
