@@ -50,7 +50,7 @@ def main(str_word=get_secret_word()):
     init_msk_str=mask_secret_word(str_word)
     mskd_list=list(init_msk_str)
     
-    wrng_g=''
+    wrng_g='' # NKV: Use full names (don't squeeze vowels)
     g_str=''.join(mskd_list)
     
    # print(word)
@@ -62,13 +62,13 @@ def main(str_word=get_secret_word()):
         
         usr_input=input("Enter your guess:  ")
         
-        if len(usr_input)!=1:
+        if len(usr_input)!=1:  # NKV: Error checking is good but out of spec here. You should have a test for this
             print("Enter one Char. only!")
             continue
         
         if usr_input in word:
-            index_list=check(word,usr_input)
-            mskd_list=unmask(word,mskd_list,index_list)
+            index_list=check(word, usr_input)
+            mskd_list=unmask(word, mskd_list, index_list)
             g_str=''.join(mskd_list)
             print(g_str)
         else:
